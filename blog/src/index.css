@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #8b5cf6;
+    --color-primary-light: #a78bfa;
+    --color-primary-lighter: #c4b5fd;
+    --color-accent: #ec4899;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    /* Noto Serif SC 异步加载，未就绪时回退到系统中文字体，避免首屏等待 */
+    font-family: 'Noto Serif SC', 'PingFang SC', 'Microsoft YaHei', -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark body {
+    color: #f3f4f6;
+  }
+}
+
+@layer components {
+  /* 毛玻璃卡片：浅色 —— 贴近 XinghuisamaBlogs：更薄白底 + 更大圆角 */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  }
+
+  /* 毛玻璃卡片：深色 */
+  .glass-card-dark {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  }
+}
+
+@layer utilities {
+  /* 极光渐变背景 */
+  .aurora-bg {
+    background: linear-gradient(135deg, #fff0f5 0%, #e6e6fa 40%, #f3e8ff 100%);
+  }
+
+  .dark .aurora-bg {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4c1d95 100%);
+  }
+
+  /* 渐变文字 */
+  .gradient-text {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa, #c4b5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 自定义 range 滑块（播放器进度/音量条） */
+  .player-range {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+  }
+  .player-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #8b5cf6;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(139, 92, 246, 0.5);
+    transition: transform 0.15s ease;
+  }
+  .player-range::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+  }
+  .player-range::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #8b5cf6;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* 弹幕流动动画 */
+@keyframes danmaku-float-left {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 日记正文 Markdown 排版 */
+@layer components {
+  .diary-prose {
+    color: rgb(51 65 85);
+    font-size: 0.975rem;
+    line-height: 1.85;
+  }
+  .dark .diary-prose {
+    color: rgb(203 213 225);
+  }
+  .diary-prose h1,
+  .diary-prose h2,
+  .diary-prose h3 {
+    color: rgb(15 23 42);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+  }
+  .dark .diary-prose h1,
+  .dark .diary-prose h2,
+  .dark .diary-prose h3 {
+    color: rgb(241 245 249);
+  }
+  .diary-prose h1 { font-size: 1.6em; }
+  .diary-prose h2 { font-size: 1.35em; }
+  .diary-prose h3 { font-size: 1.15em; }
+  .diary-prose p {
+    margin: 0.9em 0;
+    text-indent: 2em;
+  }
+  .diary-prose ul,
+  .diary-prose ol {
+    margin: 0.9em 0;
+    padding-left: 1.6em;
+  }
+  .diary-prose ul { list-style: disc; }
+  .diary-prose ol { list-style: decimal; }
+  .diary-prose li { margin: 0.3em 0; }
+  .diary-prose a {
+    color: rgb(139 92 246);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .diary-prose a:hover {
+    color: rgb(167 139 250);
+  }
+
+  /* 富文本（碎碎念/心情等）：admin 写入的 Markdown 渲染样式，跟随父级字号与行高 */
+  .markdown-text p {
+    margin: 0.35em 0;
+  }
+  .markdown-text p:first-child {
+    margin-top: 0;
+  }
+  .markdown-text p:last-child {
+    margin-bottom: 0;
+  }
+  .markdown-text h1,
+  .markdown-text h2,
+  .markdown-text h3,
+  .markdown-text h4 {
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0.6em 0 0.3em;
+  }
+  .markdown-text h1 { font-size: 1.35em; }
+  .markdown-text h2 { font-size: 1.2em; }
+  .markdown-text h3 { font-size: 1.08em; }
+  .markdown-text ul,
+  .markdown-text ol {
+    margin: 0.35em 0;
+    padding-left: 1.4em;
+  }
+  .markdown-text ul { list-style: disc; }
+  .markdown-text ol { list-style: decimal; }
+  .markdown-text li { margin: 0.2em 0; }
+  .markdown-text strong { font-weight: 700; }
+  .markdown-text em { font-style: italic; }
+  .markdown-text code {
+    background: rgb(139 92 246 / 0.12);
+    padding: 0.1em 0.35em;
+    border-radius: 0.35em;
+    font-size: 0.9em;
+  }
+  .markdown-text blockquote {
+    border-left: 3px solid rgb(139 92 246 / 0.4);
+    padding-left: 0.8em;
+    margin: 0.35em 0;
+    opacity: 0.85;
+  }
+  .markdown-text a {
+    color: rgb(139 92 246);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .diary-prose blockquote {
+    border-left: 3px solid rgba(139, 92, 246, 0.5);
+    padding: 0.2em 0 0.2em 1em;
+    margin: 1em 0;
+    color: rgb(100 116 139);
+    font-style: italic;
+  }
+  .dark .diary-prose blockquote {
+    color: rgb(148 163 184);
+  }
+  .diary-prose code {
+    background: rgba(139, 92, 246, 0.12);
+    color: rgb(124 58 237);
+    padding: 0.15em 0.4em;
+    border-radius: 0.35rem;
+    font-size: 0.875em;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+  .dark .diary-prose code {
+    background: rgba(167, 139, 250, 0.18);
+    color: rgb(196 181 253);
+  }
+  .diary-prose pre {
+    margin: 1em 0;
+    padding: 1em 1.2em;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    font-size: 0.85em;
+  }
+  .diary-prose pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+  }
+  .diary-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.9em;
+  }
+  .diary-prose th,
+  .diary-prose td {
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    padding: 0.5em 0.8em;
+    text-align: left;
+  }
+  .diary-prose th {
+    background: rgba(139, 92, 246, 0.08);
+    font-weight: 600;
+  }
+  .diary-prose hr {
+    border: none;
+    border-top: 1px solid rgba(148, 163, 184, 0.3);
+    margin: 1.6em 0;
+  }
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <link rel="shortcut icon" href="/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>芋泥椰奶</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts 异步加载：不阻塞首屏渲染，字体迟到时先用系统中文字体回退 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <!--
+      SPA 路径恢复脚本（Task 17.2）
+      与 public/404.html 配合：404 页把目标路径存入 sessionStorage 后跳回根 index.html，
+      此处在 React bundle 加载前读取并通过 history.replaceState 恢复路径，
+      让 react-router 渲染正确页面。
+      必须在 main.jsx 之前同步执行，故放在 head 中。
+    -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        // 仅当保存的路径与当前 URL 不同时才恢复，避免重复刷新造成死循环
+        if (redirect && redirect !== location.pathname + location.search + location.hash) {
+          history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

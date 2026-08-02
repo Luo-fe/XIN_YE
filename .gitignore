@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Env files (keep .env.example tracked, ignore local secrets)
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets — 网盘/网易云访问令牌，绝不能进仓库
+admin/.baidu-token.json
+admin/.netease-token.json
+
+# 旧版照片墙原图副本（当前前端不引用；本地 admin 上传落盘处）。
+# 静态部署不需要这 489MB，本地保留即可
+blog/public/photos/
+
+# IDE / 系统文件
+.trae/
+.vscode/
+desktop.ini

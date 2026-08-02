@@ -1,0 +1,17 @@
+{
+  "name": "couple-blog",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "analyze-photos": "node scripts/analyze-photos.mjs"
+  },
+  "devDependencies": {
+    "exifreader": "^4.27.0",
+    "sharp": "^0.34.5"
+  },
+  "allowScripts": {
+    "exifreader@4.41.3": true,
+    "sharp@0.34.5": true
+  }
+}

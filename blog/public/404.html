@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>情侣博客</title>
+  <!--
+    GitHub Pages SPA 404 转发脚本（Task 17.2）
+    GitHub Pages 对未匹配静态文件的路径会返回 404，导致 SPA 路由直接访问或刷新失败。
+    本脚本把用户实际想访问的路径存入 sessionStorage，再跳回站点根的 index.html，
+    由 index.html 内联脚本读取并通过 history.replaceState 恢复目标路径，
+    随后交由前端路由（react-router）渲染对应页面。
+    适用于 GitHub Pages 项目页部署（base 形如 /<repo>/）。
+  -->
+  <script>
+    (function () {
+      var l = window.location;
+      // 保存用户实际想访问的路径（含 query 与 hash）
+      sessionStorage.redirect = l.pathname + l.search + l.hash;
+      // 推断站点根路径：项目页部署时第一段为仓库名
+      // 例如 /couple-blog/diaries -> /couple-blog/
+      var segments = l.pathname.split('/').filter(Boolean);
+      var base = segments.length > 1 ? '/' + segments[0] + '/' : '/';
+      l.replace(base);
+    })();
+  </script>
+</head>
+<body>
+  正在跳转首页，请稍候...
+</body>
+</html>

@@ -1,0 +1,480 @@
+[
+  {
+    "id": "primary_relationship",
+    "title": "在一起的日子",
+    "date": "2023-11-07",
+    "type": "primary",
+    "category": "anniversary",
+    "isCyclic": true,
+    "importance": 100,
+    "description": "2023年11月7日，通识课上第一次牵手，正式确立恋爱关系。从这一天起，日记里全是一个人，从此贴贴、抱抱、想你了成为日常。",
+    "years": [
+      {
+        "year": 2023,
+        "actualDate": "2023-11-05",
+        "description": "关系确立的里程碑。11月5日前后在通识课上第一次牵手，正式从暧昧走向恋爱。11月11日凌晨两人回顾恋爱时间线，确认牵手第一次应该是五号。",
+        "quotes": [
+          "小叶叶（11-05）：你下午去上课嘛，我能去找你嘛",
+          "小叶叶（11-05）：小菇都怪你，舍不得走迟到了",
+          "小叶叶（11-05）：睡觉之前记得喝药……别熬夜",
+          "小昕昕（11-04）：不过本来就很帅",
+          "小叶叶（11-11回顾）：你已经被我绑住了，跑不掉",
+          "小昕昕（11-08星之咒语）：生活让我灰头土脸，你却能让沙漠开出蔷薇🌹"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2024,
+        "actualDate": "2024-11-05",
+        "description": "一周年。当天两人讨论情侣戒指刻字，互写昕❤叶、叶❤昕，温馨甜蜜。",
+        "quotes": [
+          "小昕昕（11-05）：但好看，嘻嘻嘻嘻嘻",
+          "小叶叶（11-05）：想刻字那就刻字",
+          "小叶叶（11-05）：不洗澡还有昕昕香",
+          "小昕昕（11-05）：昕[爱心]叶？……你的是：叶[爱心]昕",
+          "小叶叶（11-05）：晚安宝宝"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2025,
+        "actualDate": "2025-11-07",
+        "description": "两周年。小昕昕精心化妆，两人出门吃饭庆祝，晚上一起看跳水比赛，金句密集，直白表白。",
+        "quotes": [
+          "小叶叶（11-07）：好sexy，好看好看爱看……我喜欢",
+          "小昕昕（11-07）：我可是琢磨了一下的",
+          "小叶叶（11-07）：超级超级喜欢",
+          "小昕昕（11-07）：晚安宝宝么么哒，爱你爱你",
+          "小叶叶（11-07）：特别特别特别爱你"
+        ],
+        "source": "chat"
+      }
+    ]
+  },
+  {
+    "id": "primary_xiaoxinxin_birthday",
+    "title": "小昕昕的生日",
+    "date": "2002-09-15",
+    "type": "primary",
+    "category": "birthday",
+    "isCyclic": true,
+    "importance": 99,
+    "description": "九月十五号，小昕昕的公历生日。从暧昧期的藏头祝福，到23岁双喜临门的保研生日，每年的这一天都见证着她的成长与两人的相伴。",
+    "years": [
+      {
+        "year": 2023,
+        "actualDate": "2023-09-15",
+        "description": "暧昧期小昕昕生日，小叶叶精心制作藏头祝福为她庆生，是关系升温的温馨节点。",
+        "quotes": [
+          "小叶叶：花费我十个脑细胞的藏头祝福[旺柴]生日快乐！",
+          "小昕昕：文化人儿[强]，谢谢啦~[玫瑰]",
+          "小昕昕：哈哈哈收到祝福咯",
+          "小昕昕（9-16）：哈哈我听见了说我可厉害了，自学成才"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2024,
+        "actualDate": "2024-09-15",
+        "description": "小昕昕生日当天小叶叶的宠溺对话密集出现，期待亲亲与抱抱。",
+        "quotes": [
+          "小叶叶：喜欢宝宝",
+          "小叶叶：好梦降临扫去一切烦恼",
+          "小叶叶：想抱宝宝睡觉[睡]",
+          "小叶叶：还能狠狠亲亲小宝宝",
+          "小叶叶：你考完给我三十个亲亲"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2025,
+        "actualDate": "2025-09-15",
+        "description": "小昕昕23岁公历生日，双喜临门——当天还收到姐姐直播间你可以保研了的消息。小叶叶写下心里话小作文作为礼物。",
+        "quotes": [
+          "小昕昕：谢谢亲爱的",
+          "小叶叶：都是我的心里话",
+          "小昕昕：我是幸福的小孩",
+          "小叶叶：幸福昕！",
+          "小叶叶：做一个吃软饭干家务的男人"
+        ],
+        "source": "chat"
+      }
+    ]
+  },
+  {
+    "id": "primary_xiaoyeye_birthday",
+    "title": "小叶叶的生日",
+    "date": "2004-03-29",
+    "type": "primary",
+    "category": "birthday",
+    "isCyclic": true,
+    "importance": 99,
+    "description": "三月二十九号，小叶叶的生日。从第一次有女生陪伴的22岁，到太原相聚的日常陪伴，每年的这一天都藏着小昕昕的细心与小叶叶的感动。",
+    "years": [
+      {
+        "year": 2024,
+        "actualDate": "2024-03-29",
+        "description": "小叶叶22岁生日，两人线下相聚庆生。零点刚过小昕昕便发生日快乐宝贝，当晚一起度过；两人聊起去年各自生日都在忙学生会/课业无人庆祝的辛酸，小叶叶承诺今年就算有事也有我陪你。",
+        "quotes": [
+          "小昕昕（零点）：生日快乐宝贝",
+          "小叶叶：爱你😘",
+          "小昕昕：爱你，安安，mua",
+          "小叶叶：晚安呀宝宝，超级爱你",
+          "小昕昕：你的钱也是钱，你的钱就是我的钱",
+          "小叶叶：没事，今年就算有事也有我陪你"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2025,
+        "actualDate": "2025-03-29",
+        "description": "小叶叶生日，小昕昕把车钥匙留给他方便去考场，简短对话里满是温情。",
+        "quotes": [
+          "小昕昕：我把车钥匙留给你，我走过去，你要是能醒来的话，你就直接穿衣服骑车子去考场吧",
+          "小叶叶（3-30）：和你一起很开心",
+          "小昕昕：嘻嘻我也是",
+          "小昕昕：爱您"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2026,
+        "actualDate": "2026-03-29",
+        "description": "天津复试结束后，两人在太原相聚过小叶叶生日。小昕昕主动帮背平板，温柔陪伴。",
+        "quotes": [
+          "小昕昕：你背也太重了，主要我想你在学习的时候，我玩手机也不踏实",
+          "小昕昕：宝宝，我给你背平板吧，我背上我的小书包",
+          "小叶叶：虽然今天没有照片，但是不重要",
+          "小昕昕（3-30）：猛男小叶",
+          "小昕昕：我都行呀宝宝看你哦"
+        ],
+        "source": "chat"
+      }
+    ]
+  },
+  {
+    "id": "qixi",
+    "title": "七夕节",
+    "date": "2024-08-10",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": true,
+    "importance": 90,
+    "description": "异地七夕，仪式感不减。从坦白攒钱送不了礼物，到像素画世界地图作为礼物，小昕昕地位最高。",
+    "years": [
+      {
+        "year": 2024,
+        "actualDate": "2024-08-10",
+        "description": "七夕节两人互道祝福。小叶叶坦白因攒钱可能送不了礼物（为开学惊喜埋伏笔），小昕昕回应攒的大钱开学肯定不会让你失望，体现信任与默契。",
+        "quotes": [
+          "小昕昕：哦对了，七夕快乐臭宝",
+          "小叶叶：七夕快乐嘻嘻",
+          "小叶叶：七夕可能送不了礼物宝宝，我在攒钱，但不是平板",
+          "小昕昕：攒的大钱开学肯定不会让你失望"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2025,
+        "actualDate": "2025-08-29",
+        "description": "七夕（两人交往658天）异地度过。小叶叶在 wplace.live 世界地图像素画网站上画了一幅画作为七夕礼物送给小昕昕。",
+        "quotes": [
+          "小叶叶：七夕快乐宝贝 / 小昕昕地位最高",
+          "小昕昕（提前预告）：七夕给你写一封~"
+        ],
+        "source": "chat"
+      }
+    ]
+  },
+  {
+    "id": "valentine",
+    "title": "情人节",
+    "date": "2024-02-14",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": true,
+    "importance": 88,
+    "description": "二月十四号，从异地抱抱起床，到手写信京东寄出，每年都用小心意跨越距离。",
+    "years": [
+      {
+        "year": 2024,
+        "actualDate": "2024-02-14",
+        "description": "异地情人节，早上甜蜜互动，小叶叶提前寄了快递礼物给她；因异地两人计划把情人节推迟到17号见面时过。",
+        "quotes": [
+          "小昕昕（早上）：要抱抱才能起床",
+          "小叶叶：抱起来！亲亲！mua"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2025,
+        "actualDate": "2025-02-14",
+        "description": "情人节相对低调，小叶叶坦言因为情人节没准备什么，两人聊预制火锅鸡、酸菜鱼，约好下次请客。",
+        "quotes": [
+          "小叶叶：因为情人节没准备什么"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2026,
+        "actualDate": "2026-02-14",
+        "description": "异地情人节，小昕昕零点发情人节快乐勾勾蛋，两人互发红包；小叶叶准备手写信/礼物准备京东寄过去。",
+        "quotes": [
+          "小昕昕（零点）：情人节快乐勾勾蛋",
+          "小叶叶：今天写完然后京东寄过去"
+        ],
+        "source": "chat"
+      }
+    ]
+  },
+  {
+    "id": "spring_festival",
+    "title": "春节",
+    "date": "2025-01-29",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": true,
+    "importance": 85,
+    "description": "农历新年，明年我们还要在一起——每年零点的承诺，是最长情的仪式。",
+    "years": [
+      {
+        "year": 2024,
+        "actualDate": "2024-02-10",
+        "description": "寒假异地，除夕一起看烟花，初一早上互相拜年；小昕昕发了甜蜜祝福。",
+        "quotes": [
+          "小昕昕：新年快乐！祝你年年有我[亲亲]"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2025,
+        "actualDate": "2025-01-29",
+        "description": "春节零点准时互发新年祝福，互相发红包、发表情包；小叶叶去赶庙会，小昕昕和家人去滑冰。",
+        "quotes": [
+          "小昕昕：叶叶新年快乐，明年我们还要在一起~"
+        ],
+        "source": "chat"
+      },
+      {
+        "year": 2026,
+        "actualDate": "2026-02-17",
+        "description": "异地跨年，零点互祝新年快乐，发红包；小叶叶感慨今年没来得及提前写一点，除夕夜发视频形容家里堪比打仗。",
+        "quotes": [
+          "小昕昕（零点）：新年快乐宝宝，等我回去",
+          "小叶叶：今年没来得及提前写一点"
+        ],
+        "source": "chat"
+      }
+    ]
+  },
+  {
+    "id": "a8",
+    "title": "初次添加好友",
+    "date": "2023-06-23",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": false,
+    "importance": 80,
+    "description": "两人缘分的起点。中午12:53，「我」添加了Gleam（茹玉昕），互致问候，开启了一段长达数年的故事。"
+  },
+  {
+    "id": "a17",
+    "title": "凌晨四点的奇迹",
+    "date": "2023-10-01",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": false,
+    "importance": 70,
+    "description": "国庆凌晨4:44，「我」发了一句早，茹玉昕竟然秒回——她刚好上厕所回来开机。错开三分钟这消息都看不见。"
+  },
+  {
+    "id": "a18",
+    "title": "小菇昵称诞生",
+    "date": "2023-10-17",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": false,
+    "importance": 68,
+    "description": "「我」开始叫茹玉昕小菇，喊饿了饿了饿了，小菇、毒蘑菇又不理我，昵称是亲密关系的具象化。"
+  },
+  {
+    "id": "a13",
+    "title": "上岸拟录取",
+    "date": "2026-04-07",
+    "type": "normal",
+    "category": "graduation",
+    "isCyclic": false,
+    "importance": 75,
+    "description": "考研上岸！从2025年备考到复试，漫长考研路修成正果。女生欢呼哇哦，兴奋地想换情侣头像庆祝。"
+  },
+  {
+    "id": "a14",
+    "title": "保研民大录取",
+    "date": "2025-09-25",
+    "type": "normal",
+    "category": "graduation",
+    "isCyclic": false,
+    "importance": 75,
+    "description": "女生保研中央民族大学拟录取，14:00准时接受系统。付出终有回报，两人一起庆祝。"
+  },
+  {
+    "id": "a3",
+    "title": "毕业照",
+    "date": "2026-06-14",
+    "type": "normal",
+    "category": "graduation",
+    "isCyclic": false,
+    "importance": 72,
+    "description": "山西大学毕业照，四年转瞬即逝，从迷茫到找回自我，致谢里写进了茹玉昕。"
+  },
+  {
+    "id": "a23",
+    "title": "考研初试",
+    "date": "2025-12-21",
+    "type": "normal",
+    "category": "event",
+    "isCyclic": false,
+    "importance": 65,
+    "description": "考研初试Day1，女生送考带好手套和口罩、饭已就位。两天考试是下半年最大事件。"
+  },
+  {
+    "id": "a24",
+    "title": "考研出分",
+    "date": "2026-02-28",
+    "type": "normal",
+    "category": "event",
+    "isCyclic": false,
+    "importance": 65,
+    "description": "成绩公布，国家线324。心动男嘉宾亮灯了，男生紧张程度感觉我高考也没这样。"
+  },
+  {
+    "id": "a25",
+    "title": "天津复试",
+    "date": "2026-03-28",
+    "type": "normal",
+    "category": "event",
+    "isCyclic": false,
+    "importance": 65,
+    "description": "考研复试日在天津，女生专程赴天津相伴。复试后两人一同回太原相聚。"
+  },
+  {
+    "id": "a19",
+    "title": "数模校赛一等奖",
+    "date": "2024-08-14",
+    "type": "normal",
+    "category": "event",
+    "isCyclic": false,
+    "importance": 60,
+    "description": "数学建模校赛斩获校一等奖、晋级国赛。队伍分工明确，茹玉昕负责论文，两人共享成就感。"
+  },
+  {
+    "id": "a21",
+    "title": "跨年夜戒指闭环",
+    "date": "2024-12-31",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": false,
+    "importance": 62,
+    "description": "跨年夜她叮嘱带戒指嘻嘻——戴上11月冲突中曾想退掉的戒指，让上月的礼物风波画上甜蜜闭环。"
+  },
+  {
+    "id": "a29",
+    "title": "深夜袒露心声",
+    "date": "2025-05-31",
+    "type": "normal",
+    "category": "event",
+    "isCyclic": false,
+    "importance": 60,
+    "description": "「我」罕见地深度袒露心声谈母亲辛苦，遇见你，你让我对未来有很多期待，而妈妈就是让我坚持好好坚持生活。"
+  },
+  {
+    "id": "a30",
+    "title": "论文大争吵与和解",
+    "date": "2026-05-01",
+    "type": "normal",
+    "category": "event",
+    "isCyclic": false,
+    "importance": 58,
+    "description": "凌晨爆发上半年最严重争吵，双向不安全感碰撞。上午女生先承认不足，男生立刻安慰，吃鸡公煲和解，冲突不过夜。"
+  },
+  {
+    "id": "a11",
+    "title": "邓紫棋演唱会",
+    "date": "2024-05-18",
+    "type": "normal",
+    "category": "travel",
+    "isCyclic": false,
+    "importance": 70,
+    "description": "筹备数月的演唱会终于成行，两人同住酒店、一起落泪、共同圆梦，是上半年感情最顺遂的高光时刻。"
+  },
+  {
+    "id": "a20",
+    "title": "鸟巢张杰演唱会",
+    "date": "2024-08-22",
+    "type": "normal",
+    "category": "travel",
+    "isCyclic": false,
+    "importance": 65,
+    "description": "她赴北京鸟巢看张杰首场鸟巢演唱会，兴奋期待期待明天的鸟巢嘻嘻，看完后赞鸟巢果然改进更大。"
+  },
+  {
+    "id": "a5",
+    "title": "北京之旅",
+    "date": "2026-04-16",
+    "type": "normal",
+    "category": "travel",
+    "isCyclic": false,
+    "importance": 62,
+    "description": "从太原出发去北京丰台，逛天坛、回音壁，去北京野生动物园喂猛兽，看张杰演唱会。"
+  },
+  {
+    "id": "a6",
+    "title": "平遥古城与绵山",
+    "date": "2026-05-27",
+    "type": "normal",
+    "category": "travel",
+    "isCyclic": false,
+    "importance": 60,
+    "description": "平遥古城day1逛双林寺，之后被王家大院瞥见的绵山悬空寺庙吸引，入住槐南村看星空，爬栖贤谷。"
+  },
+  {
+    "id": "a4",
+    "title": "开封之旅",
+    "date": "2025-01-31",
+    "type": "normal",
+    "category": "travel",
+    "isCyclic": false,
+    "importance": 58,
+    "description": "小昕昕看到武侠城的推荐说想去河南，于是真的去了开封，逛武侠城吃小吃。"
+  },
+  {
+    "id": "a12",
+    "title": "天津旅行",
+    "date": "2026-04-01",
+    "type": "normal",
+    "category": "travel",
+    "isCyclic": false,
+    "importance": 55,
+    "description": "考研复试后同游天津，精打细算做预算，吃八珍豆腐、刨冰、烤兔子，看海河夜景，天津司机口音逗乐两人。"
+  },
+  {
+    "id": "a7",
+    "title": "一起玩我的世界第一天",
+    "date": "2026-06-01",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": false,
+    "importance": 50,
+    "description": "在手机上下好我的世界，小昕昕开头就杀了三个僵尸，从此原版生存也变得有趣。"
+  },
+  {
+    "id": "a27",
+    "title": "认识两周年",
+    "date": "2025-06-23",
+    "type": "normal",
+    "category": "anniversary",
+    "isCyclic": false,
+    "importance": 45,
+    "description": "两年前的今天初次添加好友。当日未大张旗鼓庆祝，平淡相伴本身即是最长情的纪念。"
+  }
+]

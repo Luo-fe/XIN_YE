@@ -1,0 +1,8 @@
+node_modules
+dist
+.env.local
+.env.*.local
+.baidu-token.json
+.netease-token.json
+.netease-config.json
+*.log
