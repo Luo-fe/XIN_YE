@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { assetUrl } from '../utils/assetUrl'
 
 /**
  * 网站背景 Hook
@@ -41,7 +42,7 @@ export function useSiteBackground() {
 
   // 每次打开随机抽取一张；列表变化（后台增删）时重新抽取
   const backgroundUrl = backgrounds.length > 0
-    ? backgrounds[Math.floor(Math.random() * backgrounds.length)].url
+    ? assetUrl(backgrounds[Math.floor(Math.random() * backgrounds.length)].url)
     : ''
 
   return { backgroundUrl, backgrounds, loading }

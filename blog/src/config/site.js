@@ -49,6 +49,8 @@ export const siteConfig = {
   ],
   // 主页主题卡片展示区域（0-1，后台固定取景框框选）；无值时整图 cover 展示
   heroArea: null,
+  /** Giscus 评论配置（未配置时评论回退本地模式，仅 dev 可用） */
+  giscus: null,
   // 顶部导航项（已移除友链）
   nav: [
     { name: '首页', path: '/', icon: 'home' },
@@ -96,6 +98,10 @@ export async function loadRuntimeSiteConfig() {
     if (cfg.coupleHero) siteConfig.coupleHero = cfg.coupleHero
     if (cfg.heroArea) siteConfig.heroArea = cfg.heroArea
     if (cfg.startYear) siteConfig.startYear = Number(cfg.startYear) || siteConfig.startYear
+    // Giscus 评论配置（静态站评论）：由 giscus.app 向导生成后填入 site-config.json
+    if (cfg.giscus && typeof cfg.giscus === 'object' && cfg.giscus.repo) {
+      siteConfig.giscus = cfg.giscus
+    }
     // 「关于」页内容：admin 会把 profile 对象整体落盘，新字段从 profile 读取
     const p = cfg.profile
     if (p && typeof p === 'object') {

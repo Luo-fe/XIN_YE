@@ -104,13 +104,28 @@
 5. **隐私**：建议仓库设为**私有**（Pages 仍可公开访问）；若要完全私密访问需付费方案，不在本方案范围
 6. **网盘 token 过期**：B2 的 Worker 必须做自动刷新，否则大图失效（B1 无此问题）
 
-## 8. 你的待办清单
+## 8. 待办清单（2026-08-03 更新）
 
-- [ ] **确认照片同步删除结果**（回收站可恢复；确认 6,477 张删除无误）
-- [ ] 注册/登录 **GitHub**，新建**私有仓库** `couple-blog`（不要勾选添加 README）
-- [ ] 本机安装 git（若没有），在 `f:\图片\couple-blog` 执行 `git init` + 首次 `commit` + `push`（我会帮你写 `.gitignore` 排除 node_modules）
-- [ ] 仓库 **Settings → Pages**：Source 选 **GitHub Actions**（workflow 已备好，push 后自动上线）
-- [ ] 打开 admin 百度面板，扫码授权网盘（若未授权）
-- [ ] 授权后我在 admin 加"批量上传原图到网盘"功能，你点按钮上传
-- [ ] 仓库 **Settings → Discussions** 开启；访问 giscus.app 配置并给我生成的代码
-- [ ] （可选）注册 Cloudflare，我把网盘大图代理 Worker 写好给你部署
+### ✅ 已完成
+- 网站已部署上线：https://luo-fe.github.io/XIN_YE/（GitHub Actions 自动构建）
+- 修复线上全站图片 404：12 处图片引用统一补 `BASE_URL`（`src/utils/assetUrl.js`），
+  背景 / 日记封面 / 照片墙缩略图线上恢复正常；`coupleHero` 修正为仓库内图片
+- 百度网盘批量上传脚本：`scripts/upload-to-baidu.mjs`
+  （分片上传 + 断点续传 + 失败重试 + 完成后自动给 manifest 写 `baiduPath`）
+- 一键发布脚本：`sync-and-publish.bat`（分析照片 → commit → push）
+- Giscus 评论组件（双模式，配置后自动启用）：`blog/src/components/ui/GiscusComment.jsx`
+- 网盘原图代理 Cloudflare Worker 代码 + 部署文档：`docs/baidu-image-proxy/`
+- 大图查看前端支持：manifest 带 `baiduPath` 且配置 `VITE_BAIDU_PROXY` 后，
+  照片墙点击大图自动走网盘原图
+
+### ⏳ 待执行（我执行或你手动）
+- [ ] `git add -A && git commit && git push`（base 修复上线，触发自动构建）
+- [ ] 运行 `node scripts/upload-to-baidu.mjs` 上传原图到网盘（5,588 张 ≈ 40GB，跑数小时；
+      断点续传，中断后重跑即可；完成后自动更新 manifest）
+
+### 📋 需要你手动（约 10 分钟）
+- [ ] 仓库 **Settings → Discussions** 开启 + 安装 giscus App + giscus.app 生成代码
+      （详见 `docs/Giscus接入.md`，只需填 4 个值到 site-config.json 再 push）
+- [ ] 注册 Cloudflare → 部署 `docs/baidu-image-proxy/worker.js`
+      （详见 `docs/baidu-image-proxy/README.md`，之后大图从网盘拉原图）
+- [ ] （可选）确认照片同步删除结果（回收站可恢复）

@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo, useCallback } from 'react'
 import { fetchLocalPhotosManifest } from './usePhotos'
+import { assetUrl } from '../utils/assetUrl'
 
 /**
  * 把 manifest 项的 path 转成 dev 下可访问的原图 URL
@@ -8,10 +9,10 @@ import { fetchLocalPhotosManifest } from './usePhotos'
  */
 function toOriginalUrl(photo) {
   const p = photo?.path || ''
-  if (!p) return photo?.url || ''
+  if (!p) return assetUrl(photo?.url || '')
   // 已经是 URL 形式直接返回
-  if (/^https?:\/\//.test(p) || p.startsWith('/local-photo/')) return p
-  return `/local-photo/${encodeURI(p.replace(/^[/\\]+/, ''))}`
+  if (/^https?:\/\//.test(p)) return p
+  return assetUrl(`/local-photo/${encodeURI(p.replace(/^[/\\]+/, ''))}`)
 }
 
 /**
@@ -23,8 +24,8 @@ function toOriginalUrl(photo) {
  */
 export function normalizeCoverUrl(url) {
   if (!url) return ''
-  if (/^https?:\/\//.test(url) || url.startsWith('/')) return url
-  return '/' + url.replace(/^[/\\]+/, '')
+  const rooted = url.startsWith('/') ? url : '/' + url.replace(/^[/\\]+/, '')
+  return assetUrl(rooted)
 }
 
 /**
@@ -260,7 +261,7 @@ export function useDiaryCovers(diaries) {
       // 2. 持久化抽取（照片已被删除时跳过，回退到默认随机）
       const picked = pickedMap[d.slug]
       if (picked && (!picked.photoId || aliveIds.has(picked.photoId))) {
-        result[d.slug] = picked.thumbPath || picked.url || ''
+        result[d.slug] = assetUrl(picked.thumbPath || picked.url)
         continue
       }
       // 3. frontmatter cover
@@ -275,26 +276,26 @@ export function useDiaryCovers(diaries) {
           const seed = d.slug.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
           const idx = seed % matched.length
           const photo = matched[idx]
-          result[d.slug] = photo.thumbPath || toOriginalUrl(photo)
+          result[d.slug] = assetUrl(photo.thumbPath) || toOriginalUrl(photo)
         }
       }
     }
     return result
   }, [diaries, photosByDate, uploadedMap, pickedMap, aliveIds])
 
-  // 详情页用：原图优先
+  // 详情页用：缩略图优先（/local-photo 原图仅 dev 可用，线上 404 会回退，直接避免）
   const coverFullMap = useMemo(() => {
     const result = {}
     for (const d of diaries || []) {
-      // 1. 用户上传（原图；相对路径规范化为根路径）
+      // 1. 用户上传（相对路径规范化为根路径）
       if (uploadedMap[d.slug]) {
         result[d.slug] = normalizeCoverUrl(uploadedMap[d.slug])
         continue
       }
-      // 2. 持久化抽取（原图；照片已删除则跳过，回退到默认随机）
+      // 2. 持久化抽取（照片已删除则跳过，回退到默认随机）
       const picked = pickedMap[d.slug]
       if (picked && (!picked.photoId || aliveIds.has(picked.photoId))) {
-        result[d.slug] = picked.url || picked.thumbPath || ''
+        result[d.slug] = assetUrl(picked.thumbPath || picked.url)
         continue
       }
       // 3. frontmatter cover
@@ -302,14 +303,14 @@ export function useDiaryCovers(diaries) {
         result[d.slug] = normalizeCoverUrl(d.cover)
         continue
       }
-      // 4. 默认 seed 随机（原图）
+      // 4. 默认 seed 随机（缩略图优先）
       if (d.date && d.date.length === 10) {
         const matched = photosByDate.get(d.date)
         if (matched && matched.length > 0) {
           const seed = d.slug.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
           const idx = seed % matched.length
           const photo = matched[idx]
-          result[d.slug] = toOriginalUrl(photo) || photo.thumbPath || ''
+          result[d.slug] = assetUrl(photo.thumbPath) || toOriginalUrl(photo)
         }
       }
     }
@@ -435,7 +436,7 @@ export function useDiaryCovers(diaries) {
       const json = await resp.json()
       if (json.data) {
         setPickedMap((prev) => ({ ...prev, [slug]: json.data }))
-        return json.data.url || json.data.thumbPath || ''
+        return assetUrl(json.data.url || json.data.thumbPath)
       }
       throw new Error(json.error || '抽取失败')
     },

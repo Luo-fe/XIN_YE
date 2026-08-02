@@ -26,3 +26,6 @@ blog/public/photos/
 .trae/
 .vscode/
 desktop.ini
+
+# 网盘上传断点进度（运行 scripts/upload-to-baidu.mjs 时生成）
+scripts/.upload-progress.json

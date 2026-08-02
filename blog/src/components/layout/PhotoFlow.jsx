@@ -2,6 +2,7 @@ import { useMemo, useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Camera, ArrowRight } from 'lucide-react'
 import { useLocalPhotos } from '../../hooks/usePhotos'
+import { assetUrl } from '../../utils/assetUrl'
 
 /**
  * 照片流动循环播放：从照片墙随机抽取 20 张照片，水平无限滚动
@@ -115,7 +116,7 @@ function PhotoFlowInner({ count }) {
             className="relative h-full w-44 shrink-0 overflow-hidden sm:w-56"
           >
             <img
-              src={p.thumbPath || p.url || ''}
+              src={assetUrl(p.thumbPath) || assetUrl(p.url) || ''}
               alt=""
               loading="lazy"
               decoding="async"

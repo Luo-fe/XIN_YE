@@ -1,6 +1,7 @@
 import { memo, useState, useEffect, useRef } from 'react'
 import { ImageIcon, Check } from 'lucide-react'
 import clsx from 'clsx'
+import { assetUrl } from '../../utils/assetUrl'
 
 /**
  * 照片缩略图：懒加载 + 加载失败渐变占位 + CSS 悬浮动画
@@ -43,8 +44,8 @@ function PhotoThumbInner({
   const imgRef = useRef(null)
 
   // 优先加载缩略图（webp 平均 18KB），原图留给灯箱大图查看
-  const primarySrc = photo.thumbPath || photo.url || ''
-  const secondarySrc = photo.url && photo.url !== primarySrc ? photo.url : ''
+  const primarySrc = assetUrl(photo.thumbPath) || assetUrl(photo.url) || ''
+  const secondarySrc = photo.url && assetUrl(photo.url) !== primarySrc ? assetUrl(photo.url) : ''
   const imgSrc = fallback === 0 ? primarySrc : fallback === 1 ? secondarySrc : ''
   const showImage = imgSrc && fallback < 2
 

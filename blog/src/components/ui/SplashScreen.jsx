@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { siteConfig } from '../../config/site'
+import { assetUrl } from '../../utils/assetUrl'
 
 /**
  * 开机闪屏
@@ -48,7 +49,7 @@ export default function SplashScreen() {
               />
               <div className="relative h-full w-full rounded-full bg-white p-1.5 shadow-xl dark:bg-slate-900">
                 <img
-                  src="/icon.png"
+                  src={assetUrl('/icon.png')}
                   alt="芋泥椰奶"
                   className="h-full w-full rounded-full object-cover"
                 />

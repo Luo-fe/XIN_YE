@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { assetUrl } from '../utils/assetUrl'
 
 /**
  * 图片画廊：九宫格展示 + 点击放大灯箱
@@ -12,6 +13,7 @@ export default function ImageGallery({ images }) {
 
   if (!images || images.length === 0) return null
   const count = images.length
+  const urls = images.map(assetUrl)
 
   const next = (e) => {
     e.stopPropagation()
@@ -32,7 +34,7 @@ export default function ImageGallery({ images }) {
             className="block w-full overflow-hidden rounded-xl"
           >
             <img
-              src={images[0]}
+              src={urls[0]}
               alt="配图"
               loading="lazy"
               className="max-h-64 w-full object-cover transition-transform duration-500 hover:scale-105"
@@ -53,7 +55,7 @@ export default function ImageGallery({ images }) {
                 className="group relative aspect-square overflow-hidden rounded-lg"
               >
                 <img
-                  src={src}
+                  src={urls[idx]}
                   alt="配图"
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -106,7 +108,7 @@ export default function ImageGallery({ images }) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              src={images[lightbox.index]}
+              src={urls[lightbox.index]}
               alt="预览"
               className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
             />

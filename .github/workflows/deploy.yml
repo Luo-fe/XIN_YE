@@ -45,6 +45,9 @@ jobs:
         env:
           # 仓库名作为子路径，例如 couple-blog 仓库 -> '/couple-blog/'
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          # 百度网盘原图代理 Worker 地址（可选，配置后照片大图走网盘原图）
+          # 配置方法：仓库 Settings → Secrets → New repository secret → VITE_BAIDU_PROXY
+          VITE_BAIDU_PROXY: ${{ secrets.VITE_BAIDU_PROXY }}
         run: npm run build
 
       - name: 上传 Pages 产物

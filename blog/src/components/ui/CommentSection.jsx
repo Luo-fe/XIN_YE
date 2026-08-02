@@ -1,5 +1,8 @@
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { assetUrl } from '../../utils/assetUrl'
+import { siteConfig } from '../../config/site'
+import GiscusComment from './GiscusComment'
 import {
   MessageSquare,
   Send,
@@ -37,7 +40,17 @@ const EMOJIS = [
  * @param {string} targetId    目标 ID
  * @param {string} [title]     可选标题
  */
-export default function CommentSection({ targetType, targetId, title = '评论' }) {
+export default function CommentSection(props) {
+  // 配置了 giscus（site-config.json）时走 GitHub Discussions 评论（静态站可用）；
+  // 未配置回退本地评论（仅本地 admin 可用）
+  const giscusCfg = siteConfig.giscus
+  if (giscusCfg?.repo) {
+    return <GiscusComment config={giscusCfg} title={props.title} />
+  }
+  return <LocalCommentSection {...props} />
+}
+
+function LocalCommentSection({ targetType, targetId, title = '评论' }) {
   const { comments, loading, addComment, deleteComment } = useComments(targetType, targetId)
   const [identity, setIdentityState] = useState(getIdentity())
   const [text, setText] = useState('')
@@ -316,7 +329,7 @@ export default function CommentSection({ targetType, targetId, title = '评论' 
                               className="block h-20 w-20 overflow-hidden rounded-lg border border-white/40 dark:border-white/10"
                             >
                               <img
-                                src={img.startsWith('/') ? img : `/${img}`}
+                                src={assetUrl(img.startsWith('/') ? img : `/${img}`)}
                                 alt=""
                                 className="h-full w-full object-cover transition-transform hover:scale-105"
                                 loading="lazy"

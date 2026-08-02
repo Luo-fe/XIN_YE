@@ -4,6 +4,7 @@ import { ArrowLeft, Cloud, ImageIcon, Loader2, AlertCircle } from 'lucide-react'
 import clsx from 'clsx'
 import { GlassCard, Skeleton } from '../ui'
 import { useBaiduAlbums, useBaiduAlbumPhotos } from '../../hooks/usePhotos'
+import { assetUrl } from '../../utils/assetUrl'
 import PhotoThumb from './PhotoThumb'
 
 /**
@@ -121,7 +122,7 @@ function AlbumCard({ album, index, onClick }) {
               }}
             >
               <img
-                src={cover}
+                src={assetUrl(cover)}
                 alt={album.name}
                 loading="lazy"
                 onError={() => li === 1 && setCoverError(true)}

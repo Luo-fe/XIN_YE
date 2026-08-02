@@ -113,7 +113,7 @@ export default function Home() {
           <div
             className="h-full w-full bg-no-repeat"
             style={{
-              backgroundImage: `url(${siteConfig.coupleHero})`,
+              backgroundImage: `url(${assetUrl(siteConfig.coupleHero)})`,
               backgroundSize: heroStyle.backgroundSize,
               backgroundPosition: heroStyle.backgroundPosition,
             }}

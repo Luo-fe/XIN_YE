@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { assetUrl } from '../../utils/assetUrl'
 import {
   X,
   ChevronLeft,
@@ -88,15 +89,18 @@ export default function Lightbox({
     setShowComments(false)
   }, [photo?.id, index])
 
-  const primarySrc = photo?.url || photo?.thumbPath || ''
-  const secondarySrc = photo?.thumbPath && photo?.thumbPath !== primarySrc ? photo.thumbPath : ''
+  // 大图优先级：本地原图（dev）→ 网盘原图（线上代理）→ 缩略图
+  const primarySrc = assetUrl(photo?.url) || photo?.baiduUrl || assetUrl(photo?.thumbPath) || ''
+  // fallback 1 取候选源里第一个与 primary 不同的（失败时逐级降级）
+  const candidates = [assetUrl(photo?.url), photo?.baiduUrl, assetUrl(photo?.thumbPath)].filter(Boolean)
+  const secondarySrc = candidates.find((c) => c !== primarySrc) || ''
   const imgSrc = fallback === 0 ? primarySrc : fallback === 1 ? secondarySrc : ''
 
   // 预加载下一张大图（当前张空闲后后台取一张），←/→ 翻页时几乎无等待
   useEffect(() => {
     if (!open || !photos || photos.length < 2) return
     const nextPhoto = photos[(index + 1) % photos.length]
-    const src = nextPhoto?.url || nextPhoto?.thumbPath || ''
+    const src = assetUrl(nextPhoto?.url) || assetUrl(nextPhoto?.thumbPath) || ''
     if (!src) return
     const img = new Image()
     img.src = src

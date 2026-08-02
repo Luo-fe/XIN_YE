@@ -14,6 +14,10 @@ import {
 // 部署时若配置了 VITE_ADMIN_URL 则用远程 admin（跨域），未配置则回退本地 manifest
 const ADMIN_PROXY_URL = import.meta.env.VITE_ADMIN_URL || ''
 
+// 百度网盘原图代理 Worker（方案 B 5.2/B2）：静态站上大图经 Worker 拉网盘原图。
+// 由构建时注入（GitHub secret VITE_BAIDU_PROXY），未配置则大图回退缩略图
+const BAIDU_PROXY = import.meta.env.VITE_BAIDU_PROXY || ''
+
 // 运行时加载 local-photos-manifest.json（6MB+，放 public/ 避免打包进 JS）
 // 使用内存缓存，同一会话内只 fetch 一次
 let _localManifestCache = null
@@ -112,6 +116,8 @@ function toLocalSeasonPhoto(item, edit) {
     id: merged.id,
     url: merged.path ? `/local-photo/${encodeURI(merged.path)}` : '',
     thumbPath: merged.thumbPath || '',
+    // 网盘原图（经 Cloudflare Worker 代理）；线上 dev 无 /local-photo 时用此查看大图
+    baiduUrl: BAIDU_PROXY && merged.baiduPath ? `${BAIDU_PROXY}/img?path=${encodeURIComponent(merged.baiduPath)}` : '',
     filename: merged.filename || '',
     dateTime: merged.dateTime || '',
     timestamp: merged.timestamp || 0,

@@ -135,7 +135,7 @@ export default function Timeline() {
                     <div className="relative h-28 overflow-hidden sm:h-36 md:h-40">
                       {item.image ? (
                         <img
-                          src={item.image}
+                          src={assetUrl(item.image)}
                           alt={item.title}
                           loading="lazy"
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -227,7 +227,7 @@ export default function Timeline() {
                           {item.image && (
                             <div className="relative h-40 w-full overflow-hidden">
                               <img
-                                src={item.image}
+                                src={assetUrl(item.image)}
                                 alt={item.title}
                                 loading="lazy"
                                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"

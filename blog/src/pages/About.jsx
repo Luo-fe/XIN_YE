@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { assetUrl } from '../utils/assetUrl'
 
 import { motion } from 'framer-motion'
 import {
@@ -155,7 +156,7 @@ export default function About() {
       <header className="relative overflow-hidden rounded-3xl border border-white/40 shadow-glass dark:border-white/10">
         <div className="absolute inset-0">
           <img
-            src={siteConfig.coupleHero}
+            src={assetUrl(siteConfig.coupleHero)}
             alt="合照"
             className="h-full w-full object-cover"
           />
@@ -194,7 +195,7 @@ export default function About() {
           <div className="absolute -inset-1 animate-pulse rounded-full bg-gradient-to-tr from-primary via-pink-500 to-primary-light opacity-50 blur-md" />
           <div className="relative h-full w-full rounded-full bg-gradient-to-tr from-primary to-pink-500 p-1 shadow-glow">
             <img
-              src={siteConfig.avatarUrl}
+              src={assetUrl(siteConfig.avatarUrl)}
               alt="头像"
               loading="lazy"
               className="h-full w-full rounded-full bg-white object-cover dark:bg-slate-700"

@@ -122,7 +122,7 @@ export default function Music() {
                 <span className="w-6 shrink-0 text-right text-xs text-slate-400">{i + 1}</span>
                 {s.coverUrl ? (
                   <img
-                    src={s.coverUrl}
+                    src={assetUrl(s.coverUrl)}
                     alt={s.name}
                     className="h-8 w-8 shrink-0 rounded-md object-cover"
                   />

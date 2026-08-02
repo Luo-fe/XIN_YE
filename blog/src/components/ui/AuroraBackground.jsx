@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
+import { assetUrl } from '../../utils/assetUrl'
 
 /**
  * 背景：固定背景图 + 毛玻璃虚化遮罩
@@ -17,7 +18,7 @@ export default function AuroraBackground({ url = '', className = '' }) {
     setFailed(false)
   }, [url])
 
-  const bgUrl = url && !failed ? url : '/bg.jpg'
+  const bgUrl = assetUrl(url && !failed ? url : '/bg.jpg')
 
   return (
     <div
@@ -38,7 +39,7 @@ export default function AuroraBackground({ url = '', className = '' }) {
           配置的背景图不可达（如部署环境无本地照片服务）时回退默认 /bg.jpg */}
       {url && (
         <img
-          src={url}
+          src={assetUrl(url)}
           alt=""
           aria-hidden
           className="hidden"
