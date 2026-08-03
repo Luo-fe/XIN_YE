@@ -88,7 +88,8 @@ export async function loadRuntimeSiteConfig() {
   _runtimeLoaded = true
   try {
     const base = import.meta.env.BASE_URL || '/'
-    const resp = await fetch(`${base}site-config.json`)
+    // 禁用浏览器缓存：admin 保存配置 / giscus 开关要立即生效（GitHub Pages 默认缓存 10 分钟）
+    const resp = await fetch(`${base}site-config.json`, { cache: 'no-store' })
     if (!resp.ok) return
     const cfg = await resp.json()
     if (!cfg || typeof cfg !== 'object') return
