@@ -157,7 +157,7 @@ async function uploadFile(rel, abs, size) {
       const form = new FormData()
       form.append('file', new Blob([part.subarray(0, n)]), 'blob')
       const url = `https://d.pcs.baidu.com/rest/2.0/pcs/superfile2?method=upload&access_token=${accessToken}&type=tmpfile&path=${encodeURIComponent(remotePath)}&uploadid=${encodeURIComponent(uploadid)}&partseq=${i}`
-      const resp = await fetch(url, { method: 'POST', body: form })
+      const resp = await fetch(url, { method: 'POST', headers: { 'User-Agent': 'pan.baidu.com' }, body: form })
       const data = await resp.json()
       if (data.errno && data.errno !== 0) throw new Error(`part${i} errno=${data.errno}`)
     }
