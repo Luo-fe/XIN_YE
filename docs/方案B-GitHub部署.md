@@ -122,14 +122,17 @@
 - [ ] 运行 `node scripts/upload-to-baidu.mjs` 上传原图到网盘（5,588 张 ≈ 40GB，跑数小时；
       断点续传，中断后重跑即可；完成后自动更新 manifest）
       ⚠️ 当前被百度接口权限卡住：precreate/superfile2 分片上传正常，
-      但 create（文件/目录创建）一律 `errno=2`（PCS 报 31064 "file is not authorized"）。
+      但 create（文件/目录创建）一律 `errno=2`（PCS 报 31064 "file is not authorized"；
+      换全新授权的新 token 后依旧 errno=2，确认是应用层接口权限）。
       应用「芋泥椰奶」的接口权限里没有「创建文件/目录」，需在开放平台申请（见下）
 
-### 📋 需要你手动（约 10 分钟）
+### 📋 需要你手动
 - [ ] **百度开放平台（pan.baidu.com/union）→ 应用管理 → 芋泥椰奶 → 接口权限**：
-      申请开通「创建文件/目录」（文件上传完成 create）等文件操作权限，审核通过后重跑上传脚本
-- [ ] （备选）不想等审核：用百度网盘客户端手动把 `f:\图片\照片` 拖进网盘，
-      然后我改用文档里的 recentlist 缩略图接口做 5.2 大图代理（该应用已有相册权限）
+      申请开通「创建文件/目录」（文件上传完成 create），审核通过后重跑上传脚本即可全自动
+- [ ] **（备选，今天可做）** 用百度网盘客户端把 `f:\图片\照片` 整文件夹拖进网盘根目录
+      （文件夹名保持 `小昕昕❤️小叶叶`，目录结构与本地一致），然后运行：
+      `node scripts/write-baidupath.mjs` 自动回填 manifest 的 baiduPath
+      —— 该应用 list/download 接口已确认可用（errno=0），大图代理可直接拉原图
 - [ ] 仓库 **Settings → Discussions** 开启 + 安装 giscus App + giscus.app 生成代码
       （详见 `docs/Giscus接入.md`，只需填 4 个值到 site-config.json 再 push）
 - [ ] 注册 Cloudflare → 部署 `docs/baidu-image-proxy/worker.js`
