@@ -20,7 +20,7 @@ import timelineData from '../data/timeline.json'
 import anniversariesData from '../data/anniversaries.json'
 import { coupleHero, siteConfig } from '../config/site'
 import { computeCoverStyle } from '../hooks/useDiaryCovers'
-import { daysSince, stripMarkdown } from '../utils/content'
+import { daysSince, stripMarkdown, stripHtml } from '../utils/content'
 
 // 从数组中随机抽取 n 个不重复元素
 function pickRandom(arr, n) {
@@ -259,7 +259,7 @@ export default function Home() {
                         </span>
                       </span>
                       <span className="line-clamp-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                        {getDiaryExcerpt(d.body) || d.summary}
+                        {getDiaryExcerpt(d.body) || stripHtml(d.summary)}
                       </span>
                     </Link>
                   </li>

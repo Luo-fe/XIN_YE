@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import { GlassCard, Skeleton } from '../components/ui'
 import { useDiaries } from '../hooks/useDiaries'
 import { useDiaryCovers, computeCoverStyle, normalizeArea16x9 } from '../hooks/useDiaryCovers'
-import { stripMarkdown } from '../utils/content'
+import { stripMarkdown, stripHtml } from '../utils/content'
 
 // 日记列表页：毛玻璃卡片网格，封面 + 标题 + 日期 + 摘要 + 标签筛选
 export default function DiaryList() {
@@ -201,8 +201,8 @@ export default function DiaryList() {
                       const needFill = fillMap[d.slug]
                       // 需要填充时用正文纯文本，否则用摘要
                       const preview = needFill
-                        ? (d.body ? stripMarkdown(d.body).slice(0, 300) : d.summary)
-                        : d.summary
+                        ? (d.body ? stripMarkdown(d.body).slice(0, 300) : stripHtml(d.summary))
+                        : stripHtml(d.summary)
                       if (!preview) return null
                       return (
                         <p

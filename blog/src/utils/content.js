@@ -58,6 +58,20 @@ export function daysSince(dateStr) {
 /**
  * 去掉 Markdown 标记取纯文本（用于摘要/预览）
  */
+/** 剥离 HTML 标签/实体（admin 富文本摘要会带 <span style=...> 等标签） */
+export function stripHtml(html = '') {
+  return html
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 export function stripMarkdown(md = '') {
   return md
     .replace(/^#{1,6}\s+/gm, '') // 标题
