@@ -201,7 +201,7 @@ export default function DiaryList() {
                       const needFill = fillMap[d.slug]
                       // 需要填充时用正文纯文本，否则用摘要
                       const preview = needFill
-                        ? (d.body ? stripMarkdown(d.body).slice(0, 300) : stripHtml(d.summary))
+                        ? (d.body ? stripHtml(stripMarkdown(d.body)).slice(0, 300) : stripHtml(d.summary))
                         : stripHtml(d.summary)
                       if (!preview) return null
                       return (

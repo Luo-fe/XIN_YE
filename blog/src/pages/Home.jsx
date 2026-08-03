@@ -54,10 +54,10 @@ function getTogetherDays() {
   return daysSince(rel?.date || '2023-11-07')
 }
 
-// 从日记正文提取开头一两句作为摘要（去除 Markdown 标记）
+// 从日记正文提取开头一两句作为摘要（去除 Markdown 标记与富文本 HTML 标签）
 function getDiaryExcerpt(body, maxSentences = 2) {
   if (!body) return ''
-  const text = stripMarkdown(body).replace(/\s+/g, ' ')
+  const text = stripHtml(stripMarkdown(body)).replace(/\s+/g, ' ')
   const sentences = text
     .split(/(?<=[。！？!?])/)
     .map((s) => s.trim())
