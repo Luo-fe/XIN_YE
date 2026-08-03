@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import { assetUrl } from '../utils/assetUrl'
 import { Footprints, Calendar, Search, Sparkles, ListTree, LayoutGrid, ArrowUp, MessageSquare } from 'lucide-react'
 import { GlassCard, Modal, CommentSection } from '../components/ui'
 import timelineData from '../data/timeline.json'

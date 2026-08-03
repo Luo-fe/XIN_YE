@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { assetUrl } from '../utils/assetUrl'
 import APlayer from 'aplayer'
 import 'aplayer/dist/APlayer.min.css'
 import { Music as MusicIcon, Headphones, Loader2, ListMusic } from 'lucide-react'

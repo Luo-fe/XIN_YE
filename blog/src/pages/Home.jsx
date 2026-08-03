@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { assetUrl } from '../utils/assetUrl'
 import {
   Sparkles,
   BookOpen,
