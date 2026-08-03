@@ -107,10 +107,11 @@ async function mkdirRemote(remotePath) {
 /** 递归确保父目录存在（含 emoji 编码问题处理） */
 const mkdirCache = new Set()
 async function ensureParent(remotePath) {
-  const dirs = remotePath.split('/').slice(0, -1)
+  // 去掉空段（路径以 / 开头时 split 首段是空串），并跳过根目录本身
+  const dirs = remotePath.split('/').slice(0, -1).filter(Boolean)
   let cur = ''
   for (const d of dirs) {
-    cur += '/' + d
+    cur = cur ? `${cur}/${d}` : `/${d}`
     if (mkdirCache.has(cur)) continue
     await mkdirRemote(cur)
     mkdirCache.add(cur)
