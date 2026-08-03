@@ -15,7 +15,7 @@
  *       admin/.env.local 的 VITE_BAIDU_APP_KEY / VITE_BAIDU_SECRET_KEY（刷新用）
  */
 import { createHash } from 'node:crypto'
-import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { readFileSync, existsSync, writeFileSync, openSync, readSync, closeSync, statSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -119,16 +119,16 @@ async function ensureParent(remotePath) {
 
 /** 文件分块 md5 */
 function fileBlocks(abs) {
-  const fd = require('node:fs').openSync(abs, 'r')
+  const fd = openSync(abs, 'r')
   const blocks = []
   let buf = Buffer.alloc(CHUNK)
   let read = 0
   try {
-    while ((read = require('node:fs').readSync(fd, buf, 0, CHUNK, null)) > 0) {
+    while ((read = readSync(fd, buf, 0, CHUNK, null)) > 0) {
       blocks.push(createHash('md5').update(buf.subarray(0, read)).digest('hex'))
     }
   } finally {
-    require('node:fs').closeSync(fd)
+    closeSync(fd)
   }
   return blocks
 }
@@ -148,11 +148,11 @@ async function uploadFile(rel, abs, size) {
   const uploadid = pre.uploadid
 
   // 2. 按序分片上传（百度要求 partseq 递增）
-  const fd = require('node:fs').openSync(abs, 'r')
+  const fd = openSync(abs, 'r')
   try {
     for (let i = 0; i < blocks.length; i++) {
       const part = Buffer.alloc(CHUNK)
-      const n = require('node:fs').readSync(fd, part, 0, CHUNK, i * CHUNK)
+      const n = readSync(fd, part, 0, CHUNK, i * CHUNK)
       const form = new FormData()
       form.append('file', new Blob([part.subarray(0, n)]), 'blob')
       const url = `https://d.pcs.baidu.com/rest/2.0/pcs/superfile2?method=upload&access_token=${accessToken}&type=tmpfile&path=${encodeURIComponent(remotePath)}&uploadid=${encodeURIComponent(uploadid)}&partseq=${i}`
@@ -161,7 +161,7 @@ async function uploadFile(rel, abs, size) {
       if (data.errno && data.errno !== 0) throw new Error(`part${i} errno=${data.errno}`)
     }
   } finally {
-    require('node:fs').closeSync(fd)
+    closeSync(fd)
   }
 
   // 3. create（提交完成）
@@ -199,7 +199,7 @@ if (todo.length === 0) {
     let lastErr = null
     for (let attempt = 0; attempt <= MAX_RETRY; attempt++) {
       try {
-        const size = require('node:fs').statSync(abs).size
+        const size = statSync(abs).size
         const remotePath = await uploadFile(item.path, abs, size)
         progress.uploaded[item.path] = { remotePath, size, at: new Date().toISOString() }
         delete progress.failed[item.path]
